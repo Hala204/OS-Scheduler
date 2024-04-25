@@ -3,18 +3,22 @@
 /* Modify this file as needed*/
 int remainingtime;
 
-int main(int agrc, char * argv[])
-{
+int main(int agrc, char *argv[]) {
     initClk();
-    
-    //TODO it needs to get the remaining time from somewhere
-    //remainingtime = ??;
-    while (remainingtime > 0)
-    {
-        // remainingtime = ??;
+    init_remain_time();
+
+    //printf("\nin Process.c remain_time = %d\n", *shm_remain_time);
+
+    int prev_clk = getClk();
+    while (*shm_remain_time > 0) {
+        while (prev_clk == getClk());
+
+
+        (*shm_remain_time)--;
+        prev_clk = getClk();
+
     }
-    
+
     destroyClk(false);
-    
     return 0;
 }

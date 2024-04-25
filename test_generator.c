@@ -11,6 +11,15 @@ struct processData
     int id;
 };
 
+
+/**
+ * @brief 
+ * 
+ * @param argc 
+ * @param argv 
+ * @return int 
+ */
+
 int main(int argc, char * argv[])
 {
     FILE * pFile;
